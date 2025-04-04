@@ -1,0 +1,15 @@
+@import 'src/styles/settings';
+
+.button {
+  background: $button-color;
+  border: 0;
+  color: $color-light;
+  font-family: $font-text;
+  font-weight: 700;
+  height: 45px;
+  width: 70px;
+  border-radius: 5px;
+  &:hover {
+    background: $button-color-hover;
+  }
+}
