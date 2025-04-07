@@ -34,7 +34,12 @@ const TimerPanel = props => {
     seconds = seconds % 3600;
     const minutes = parseInt( seconds / 60 );
     seconds = seconds % 60;
-    return "0"+hours+":0"+minutes+":"+seconds;
+    return twoDigitsParser(hours)+":"+twoDigitsParser(minutes)+":"+twoDigitsParser(seconds);
+  }
+
+  const twoDigitsParser = (number) => {
+    if (number < 10) return '0' + number;
+    else return ''+number;
   }
 
   return (
