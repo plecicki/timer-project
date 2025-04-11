@@ -2,6 +2,7 @@ import styles from './TimerPanel.module.scss';
 import {useState, useEffect} from 'react';
 import Display from "../Display/Display";
 import ButtonsConsole from "../ButtonsConsole/ButtonsConsole";
+import {msToHMS} from "../../Helper/Helper";
 
 const TimerPanel = props => {
 
@@ -15,8 +16,8 @@ const TimerPanel = props => {
 
   const runTimer = () => {
     setTimer(setInterval(() => {
-      setTime(prevValue => prevValue + 1);
-    }, 1));
+      setTime(prevValue => prevValue + 100);
+    }, 100));
   }
 
   const stopTimer = () => {
@@ -26,20 +27,6 @@ const TimerPanel = props => {
   const resetTimer = () => {
     clearInterval(timer);
     setTime(0);
-  }
-
-  const msToHMS = (ms) => {
-    let seconds = ms / 1000;
-    const hours = parseInt( seconds / 3600 );
-    seconds = seconds % 3600;
-    const minutes = parseInt( seconds / 60 );
-    seconds = seconds % 60;
-    return twoDigitsParser(hours)+":"+twoDigitsParser(minutes)+":"+twoDigitsParser(seconds);
-  }
-
-  const twoDigitsParser = (number) => {
-    if (number < 10) return '0' + number;
-    else return ''+number;
   }
 
   return (
